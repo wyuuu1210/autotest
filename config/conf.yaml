@@ -1,0 +1,12 @@
+test_data:
+  file_name: "data.xlsx"
+
+
+log:
+  name: python
+  level: INFO
+  log_file: test_log.txt
+
+
+host: "http://v.juhe.cn/"
+
