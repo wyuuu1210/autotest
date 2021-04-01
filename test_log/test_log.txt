@@ -8,3 +8,11 @@
 2021-03-28 18:37:03,505--test_news_api.py--line:27--INFO:断言成功
 2021-03-28 18:41:21,815--test_news_api.py--line:27--INFO:断言成功
 2021-03-28 18:41:22,303--test_news_api.py--line:27--INFO:断言成功
+2021-04-01 14:55:19,008--test_news_api.py--line:27--INFO:断言成功
+2021-04-01 14:56:02,769--test_news_api.py--line:27--INFO:断言成功
+2021-04-01 14:56:03,127--test_news_api.py--line:27--INFO:断言成功
+2021-04-01 14:56:12,381--test_select_ip.py--line:31--ERROR:断言失败'except_result'
+2021-04-01 14:56:46,118--test_select_ip.py--line:32--ERROR:断言失败'except_result'
+2021-04-01 14:57:23,622--test_select_ip.py--line:34--ERROR:断言失败'except_result'
+2021-04-01 15:02:48,387--test_select_ip.py--line:34--ERROR:断言失败'except_result'
+2021-04-01 15:09:49,785--test_select_ip.py--line:32--INFO:断言成功
