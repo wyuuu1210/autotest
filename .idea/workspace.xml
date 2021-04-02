@@ -38,19 +38,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a8389cc-326d-43e3-abf2-6e6e763e1526" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/autotest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_log/test_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_log/test_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/test_select_ip.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/test_select_ip.py" afterDir="false" />
-    </list>
+    <list default="true" id="9a8389cc-326d-43e3-abf2-6e6e763e1526" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +72,29 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_select_ip.py">
+  <component name="RunManager" selected="Python.test_all_case">
+    <configuration name="test_all_case" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="autotest" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_all_case.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests in test_news_api.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autotest" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,6 +127,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_all_case" />
         <item itemvalue="Python tests.Unittests in test_select_ip.py" />
         <item itemvalue="Python tests.Unittests in test_news_api.py" />
       </list>
@@ -136,7 +147,7 @@
       <workItem from="1617030137084" duration="279000" />
       <workItem from="1617107811671" duration="2945000" />
       <workItem from="1617255467047" duration="461000" />
-      <workItem from="1617258100317" duration="3268000" />
+      <workItem from="1617258100317" duration="3508000" />
     </task>
     <servers />
   </component>
@@ -179,28 +190,29 @@
       <screen x="51" y="23" width="1389" height="877" />
     </state>
     <state x="533" y="222" key="FileChooserDialogImpl/51.23.1389.877@51.23.1389.877" timestamp="1617109134768" />
-    <state width="1347" height="231" key="GridCell.Tab.0.bottom" timestamp="1617263897074">
+    <state width="1347" height="231" key="GridCell.Tab.0.bottom" timestamp="1617264636880">
       <screen x="51" y="23" width="1389" height="877" />
     </state>
-    <state width="1347" height="231" key="GridCell.Tab.0.bottom/51.23.1389.877@51.23.1389.877" timestamp="1617263897074" />
-    <state width="1347" height="231" key="GridCell.Tab.0.center" timestamp="1617263897073">
+    <state width="1347" height="231" key="GridCell.Tab.0.bottom/51.23.1389.877@51.23.1389.877" timestamp="1617264636880" />
+    <state width="1347" height="231" key="GridCell.Tab.0.center" timestamp="1617264636879">
       <screen x="51" y="23" width="1389" height="877" />
     </state>
-    <state width="1347" height="231" key="GridCell.Tab.0.center/51.23.1389.877@51.23.1389.877" timestamp="1617263897073" />
-    <state width="1347" height="231" key="GridCell.Tab.0.left" timestamp="1617263897073">
+    <state width="1347" height="231" key="GridCell.Tab.0.center/51.23.1389.877@51.23.1389.877" timestamp="1617264636879" />
+    <state width="1347" height="231" key="GridCell.Tab.0.left" timestamp="1617264636879">
       <screen x="51" y="23" width="1389" height="877" />
     </state>
-    <state width="1347" height="231" key="GridCell.Tab.0.left/51.23.1389.877@51.23.1389.877" timestamp="1617263897073" />
-    <state width="1347" height="231" key="GridCell.Tab.0.right" timestamp="1617263897074">
+    <state width="1347" height="231" key="GridCell.Tab.0.left/51.23.1389.877@51.23.1389.877" timestamp="1617264636879" />
+    <state width="1347" height="231" key="GridCell.Tab.0.right" timestamp="1617264636880">
       <screen x="51" y="23" width="1389" height="877" />
     </state>
-    <state width="1347" height="231" key="GridCell.Tab.0.right/51.23.1389.877@51.23.1389.877" timestamp="1617263897074" />
+    <state width="1347" height="231" key="GridCell.Tab.0.right/51.23.1389.877@51.23.1389.877" timestamp="1617264636880" />
     <state x="254" y="100" key="SettingsEditor" timestamp="1617110673517">
       <screen x="51" y="23" width="1389" height="877" />
     </state>
     <state x="254" y="100" key="SettingsEditor/51.23.1389.877@51.23.1389.877" timestamp="1617110673517" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/autotest$test_all_case.coverage" NAME="test_all_case Coverage Results" MODIFIED="1617373585757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autotest$Unittests_in_test_news_api_py.coverage" NAME="Unittests in test_news_api.py Coverage Results" MODIFIED="1617260161916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
     <SUITE FILE_PATH="coverage/autotest$Unittests_in_test_select_ip_py.coverage" NAME="Unittests in test_select_ip.py Coverage Results" MODIFIED="1617260988912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
   </component>

@@ -16,3 +16,9 @@
 2021-04-01 14:57:23,622--test_select_ip.py--line:34--ERROR:断言失败'except_result'
 2021-04-01 15:02:48,387--test_select_ip.py--line:34--ERROR:断言失败'except_result'
 2021-04-01 15:09:49,785--test_select_ip.py--line:32--INFO:断言成功
+2021-04-02 22:26:26,920--test_news_api.py--line:27--INFO:断言成功
+2021-04-02 22:26:26,920--test_news_api.py--line:27--INFO:断言成功
+2021-04-02 22:26:27,333--test_news_api.py--line:27--INFO:断言成功
+2021-04-02 22:26:27,333--test_news_api.py--line:27--INFO:断言成功
+2021-04-02 22:26:27,729--test_select_ip.py--line:32--INFO:断言成功
+2021-04-02 22:26:27,729--test_select_ip.py--line:32--INFO:断言成功
