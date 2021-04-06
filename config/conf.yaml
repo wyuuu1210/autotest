@@ -8,5 +8,6 @@ log:
   log_file: test_log.txt
 
 
-host: "http://v.juhe.cn/"
+host: "http://v.juhe.cn"
+host2: "http://apis.juhe.cn"
 
