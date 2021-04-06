@@ -8,7 +8,6 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
-from pylib3.utils import force_utf8
 
 
 class Mail:
@@ -71,7 +70,7 @@ class Mail:
         try:
             conn.starttls()
         except smtplib.SMTPException as exp:
-            logging.warn("fail to starttls: %s", force_utf8(exp))
+            logging.warn("fail to starttls: %s", exp)
         conn.login(self.user, self.pwd)
         result = conn.sendmail(self.user, addr_list, msg.as_string())
         conn.close()

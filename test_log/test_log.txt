@@ -22,3 +22,9 @@
 2021-04-02 22:26:27,333--test_news_api.py--line:27--INFO:断言成功
 2021-04-02 22:26:27,729--test_select_ip.py--line:32--INFO:断言成功
 2021-04-02 22:26:27,729--test_select_ip.py--line:32--INFO:断言成功
+2021-04-06 23:54:00,857--test_news_api.py--line:27--INFO:断言成功
+2021-04-06 23:54:00,857--test_news_api.py--line:27--INFO:断言成功
+2021-04-06 23:54:01,359--test_news_api.py--line:27--INFO:断言成功
+2021-04-06 23:54:01,359--test_news_api.py--line:27--INFO:断言成功
+2021-04-06 23:54:01,817--test_select_ip.py--line:32--INFO:断言成功
+2021-04-06 23:54:01,817--test_select_ip.py--line:32--INFO:断言成功
