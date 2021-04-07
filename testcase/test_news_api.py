@@ -19,7 +19,7 @@ class TestNewsApi(unittest.TestCase):
         url = MiddleHandler().get_conf_data()["host"] + case_info["url"]
         params = json.loads(case_info["params"])
         print(params)
-        ret = requests_handler.requests_handler(url=url, method="post", params=params)
+        ret = requests_handler.Request().requests_handler(url=url, method="post", params=params)
         print(ret)
         try:
             expect_result = json.loads(case_info["expect_result"])
