@@ -1,3 +1,10 @@
+import sys
+
+if sys.argv[1] == "dev":
+    from config.settings_dev import *
+elif sys.argv[1] == "test":
+    from config.settings_test import *
+
 # 邮箱配置
 MAIL_CNF = {
     "smtp": {
@@ -12,3 +19,4 @@ MAIL_CNF = {
 }
 
 
+# 数据库配置

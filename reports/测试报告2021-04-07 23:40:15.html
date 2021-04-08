@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 120%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.test_log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起(detail)"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细()"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">自动化测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> 王钰</p>
+<p class='attribute'><strong>开始时间 : </strong> 2021-04-07 23:40:15</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:01.355679</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 3，通过 3，通过率= 100.00%</p>
+
+<p class='description'>api测试</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 3 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 3 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+# 此处为表格 行头 wangyu
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 16px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_news_api.TestNewsApi: 新闻查询接口测试</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细（初始收起1）</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_news_api_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in" align="left">
+    <pre>
+    
+pt1_1: {'id': 1, 'module': '【新闻头条】', 'title': '成功请求新闻头条，返回数据', 'url': '/toutiao/index', 'header': None, 'params': '{"key":"37e47a2441ceb88ab3086574dc68f1e3","type":"top"}', 'data': None, 'expect_result': '{"error_code": 0}', None: None}
+{'key': '37e47a2441ceb88ab3086574dc68f1e3', 'type': 'top'}
+{'reason': 'success!', 'result': {'stat': '1', 'data': [{'uniquekey': 'd5c7844e9672669a0a87aedea1b27719', 'title': '【建国路挖出老板埋藏的很多很多钱】整整一缸 700年前...', 'date': '2021-04-07 23:28:00', 'category': '头条', 'author_name': '嘉兴小新', 'url': 'https://mini.eastday.com/mobile/210407232812711586984.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232812_40547819adc6451ca0849abb55d7da49_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232812_40547819adc6451ca0849abb55d7da49_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232812_40547819adc6451ca0849abb55d7da49_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '9921dbe66b8744274640357aef5da5d7', 'title': '嘉家福|全国五好家庭——传承书法瑰宝 挥毫时代篇章', 'date': '2021-04-07 23:28:00', 'category': '头条', 'author_name': '嘉兴新闻广播1041', 'url': 'https://mini.eastday.com/mobile/210407232803089436502.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232803_5f91584c95c7f8cfd95398f448f48c5a_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232803_5f91584c95c7f8cfd95398f448f48c5a_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232803_5f91584c95c7f8cfd95398f448f48c5a_3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '79d026e72991fc8b320dd1406e42180b', 'title': '男子乘车途中突然昏迷 海口“公交侠”联合热心乘客改道送医救治', 'date': '2021-04-07 23:27:00', 'category': '头条', 'author_name': '南海网', 'url': 'https://mini.eastday.com/mobile/210407232743307365790.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232743_b7ada08e03c6f7f339c5f51c08880a45_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232743_b7ada08e03c6f7f339c5f51c08880a45_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '1fc0afe7e8a9fb604eae31db9792ebf7', 'title': '夫妻离婚 丈夫未履行子女抚养义务成被告', 'date': '2021-04-07 23:26:00', 'category': '头条', 'author_name': '多彩贵州网', 'url': 'https://mini.eastday.com/mobile/210407232621991808653.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232621_3217c595a486032360fd1ef132fcbb8a_1_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'c72453de9c7eb5d46c7b3e81781ee88c', 'title': '买游戏账号被骗2250元，违法行为人：我也被骗过想找心理平衡', 'date': '2021-04-07 23:25:00', 'category': '头条', 'author_name': '大众报业·齐鲁壹点', 'url': 'https://mini.eastday.com/mobile/210407232554214771001.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232554_8ac16e9a17d2273660da0314d525eab3_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232554_8ac16e9a17d2273660da0314d525eab3_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'a6b1f733b26adba238999dc59b3ec3f6', 'title': '捡到手机蒙对密码，男子将8000元据为己有', 'date': '2021-04-07 23:25:00', 'category': '头条', 'author_name': '大众报业·齐鲁壹点', 'url': 'https://mini.eastday.com/mobile/210407232539881211580.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232539_15ea49346c2f2211eb82a63982219497_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232539_15ea49346c2f2211eb82a63982219497_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '2870b1c6b6f9027fc1e41e3fe679d70f', 'title': '本想贷款，结果钱没到手还反亏了15000元', 'date': '2021-04-07 23:25:00', 'category': '头条', 'author_name': '大众报业·齐鲁壹点', 'url': 'https://mini.eastday.com/mobile/210407232537667986355.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232537_5d325f056a4ac2ac3b7b49ebcf76d2fb_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407232537_5d325f056a4ac2ac3b7b49ebcf76d2fb_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '1810ea4234af2ee75688f47e9b921b65', 'title': '六旬老人独自回儿子家，暴走20公里却南辕北辙', 'date': '2021-04-07 23:17:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231720837547658.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231720_d0afbe039b776c5b1eb76473f349cf3c_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231720_d0afbe039b776c5b1eb76473f349cf3c_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'e8c7a84b83a2c3bba88abffbd9342b31', 'title': '9年前盗窃古墓，山西一盗墓贼被连云港警方抓获', 'date': '2021-04-07 23:17:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231714680589294.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231714_874dfee261f4ef51fe6e4e2304fd1bc1_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231714_874dfee261f4ef51fe6e4e2304fd1bc1_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'd272e36c54d7e109f98159b2a830fdd5', 'title': '遇妻子视频“查岗” ，男子高速上抛下女友', 'date': '2021-04-07 23:17:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231705020491702.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231705_a82528c6ea1605087575d4177a88ce85_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231705_a82528c6ea1605087575d4177a88ce85_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231705_a82528c6ea1605087575d4177a88ce85_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'd5708df4e7cc51184c714e20737a6705', 'title': '化妆品只剩下包装盒，原来，老人偷走欲当见面礼送孙女', 'date': '2021-04-07 23:16:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231637802473885.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231637_8812bcb8d1060c96ee59a3ac4a947f0e_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '50a41dfb0a7847e3765e39379432fe53', 'title': '沈海高速事故原因初步查明，竟是一只轮胎酿成的悲剧，律师：驾驶员或构成交通肇事罪', 'date': '2021-04-07 23:15:00', 'category': '头条', 'author_name': '纵相新闻', 'url': 'https://mini.eastday.com/mobile/210407231558926234854.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231558_461fc9132c8ad3faeda1d78299563f34_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '1d150de27d84f5f062d82096782d97f3', 'title': '合肥市卒中急救地图2.0版本来了！ 覆盖21家医院', 'date': '2021-04-07 23:03:00', 'category': '头条', 'author_name': '中安在线', 'url': 'https://mini.eastday.com/mobile/210407230342201343507.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230342_3fd2df0994bc18bd046fa6049354fa70_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230342_3fd2df0994bc18bd046fa6049354fa70_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '6ff0905413d59cad5061ee84e77ebcc5', 'title': '“又现事故”！带娃出游警惕这些“致命快乐”', 'date': '2021-04-07 23:00:00', 'category': '头条', 'author_name': '央视新闻客户端', 'url': 'https://mini.eastday.com/mobile/210407230052706801853.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230052_1c80019d3f5473a4cf1828e6f3bf463e_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230052_1c80019d3f5473a4cf1828e6f3bf463e_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230052_1c80019d3f5473a4cf1828e6f3bf463e_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '82cd689b9c659a577b49a6f04ba88095', 'title': '现实版“我的姐姐”？00后女孩抚养三弟妹欲轻生，律师发声', 'date': '2021-04-07 23:00:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210407230039116455204.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230039_e6f618fc563db35e264a4ef3614a4ada_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230039_e6f618fc563db35e264a4ef3614a4ada_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230039_e6f618fc563db35e264a4ef3614a4ada_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'b87e728a1e2e13753c5492e0d30d0265', 'title': '视频｜下班途中多看了一眼 民警找到走失两天老伯', 'date': '2021-04-07 22:45:00', 'category': '头条', 'author_name': '看看新闻网', 'url': 'https://mini.eastday.com/mobile/210407224542482470878.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407224542_280476c73e5139d84d613aeb8fcc42e0_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407224542_280476c73e5139d84d613aeb8fcc42e0_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407224542_280476c73e5139d84d613aeb8fcc42e0_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '68007ddfcd37fad15d24665a7915df2c', 'title': '南京金盛百货桥北店将以2亿元拍卖，所属公司被多家公司申请破产清算', 'date': '2021-04-07 22:41:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407224142164811630.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407224142_30e737bfab9387f7f8189956fc57fab9_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407224142_30e737bfab9387f7f8189956fc57fab9_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '4a9976ea98a930c4d846a7ffccae60cd', 'title': '小伙捡到手机"破解"密码后疯狂购物 结果悲剧了', 'date': '2021-04-07 22:19:00', 'category': '头条', 'author_name': '看看新闻Knews', 'url': 'https://mini.eastday.com/mobile/210407221920085323201.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407221920_a7fdbcafd69f52d2e027c7854014ed3f_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407221920_a7fdbcafd69f52d2e027c7854014ed3f_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407221920_a7fdbcafd69f52d2e027c7854014ed3f_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '07ba083e1f20a05afcc950eb978aa1cc', 'title': '民航版“储值卡”上线！东航国内首创“前程万里”产品', 'date': '2021-04-07 22:19:00', 'category': '头条', 'author_name': '中国民航报', 'url': 'https://mini.eastday.com/mobile/210407221912356407490.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407221912_daa40ef375d19a7a5db568b626052add_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c9f48ec72e66e8b78c48c28336b853dd', 'title': '哥哥考砸了挨批评 弟弟端盆安慰:眼泪我给你接着', 'date': '2021-04-07 20:45:00', 'category': '头条', 'author_name': '看看新闻Knews', 'url': 'https://mini.eastday.com/mobile/210407204528465839361.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407204528_8cd62422fb63f3d24480249938cd9b96_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407204528_8cd62422fb63f3d24480249938cd9b96_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407204528_8cd62422fb63f3d24480249938cd9b96_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '58a52d312f91dd6378cdd5b1c5642227', 'title': '暖心，贵阳一彩票店免费为工人提供饮用水', 'date': '2021-04-07 20:44:00', 'category': '头条', 'author_name': '多彩贵州网', 'url': 'https://mini.eastday.com/mobile/210407204429750909463.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407204429_7c67c6f6ac2259222a5de590e31383af_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'e648b7f5e7d25ff974d663a9faae9d31', 'title': '视频｜商店首层谁与争锋 来看上海消费能力有多高', 'date': '2021-04-07 20:44:00', 'category': '头条', 'author_name': '看看新闻网', 'url': 'https://mini.eastday.com/mobile/210407204407783451878.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407204407_acf1ee181262418fcb00daf947c169e1_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407204407_acf1ee181262418fcb00daf947c169e1_2_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'ab59800b5bc36edfc6e007e929107d62', 'title': '这个拥抱等了30多年！连江失散男子在马尾与家人团聚', 'date': '2021-04-07 20:31:00', 'category': '头条', 'author_name': '福州新闻网', 'url': 'https://mini.eastday.com/mobile/210407203157041233761.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407203157_d41d8cd98f00b204e9800998ecf8427e_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '7f8159835f41d18e386b0c1c22535c66', 'title': '第八届上交会“大阪府专场”剧透：日本先进氢能源技术集中参展', 'date': '2021-04-07 20:29:00', 'category': '头条', 'author_name': '东方网', 'url': 'https://mini.eastday.com/mobile/210407202902325678902.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202902_850dc2f64ffebdcf10a2c72e41eb2a71_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202902_850dc2f64ffebdcf10a2c72e41eb2a71_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202902_850dc2f64ffebdcf10a2c72e41eb2a71_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '4d05bed460abe2383e803cf37d48d4e1', 'title': '30岁漂亮姑娘爱上27岁“男演员”，闪婚后噩梦连连…真相让人目瞪口呆', 'date': '2021-04-07 20:21:00', 'category': '头条', 'author_name': '环球网', 'url': 'https://mini.eastday.com/mobile/210407202123037487550.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202123_2614582edfafa9c8d168be6817ff8ebe_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202123_2614582edfafa9c8d168be6817ff8ebe_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202123_2614582edfafa9c8d168be6817ff8ebe_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'f1449f3a1fcee04568950979f7871f6d', 'title': '效果好、操作简单、花钱又少，看杭州如何治理“漫天飞絮”', 'date': '2021-04-07 20:20:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210407202016799352900.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202016_db9f218a204b4e46d961a1940cf60151_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202016_db9f218a204b4e46d961a1940cf60151_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '2247f1e711eb194de0b9c9dbaf47d532', 'title': '好利来回应创始人罗红与“西藏冒险王”的遇难有关联：已涉嫌造谣诽谤，已报警', 'date': '2021-04-07 20:20:00', 'category': '头条', 'author_name': '北京商报', 'url': 'https://mini.eastday.com/mobile/210407202012236220924.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407202012_952685e96ec8e3999138f6622ebb18cf_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'fdba288e8467c78ff3b5b8930349afe0', 'title': '13岁女孩花70万买画后退款？画手：对外称成年，主动出价', 'date': '2021-04-07 20:13:00', 'category': '头条', 'author_name': '正观新闻客户端', 'url': 'https://mini.eastday.com/mobile/210407201354515799406.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201354_5ba684f4d0d6b81673431e5b78534fe3_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201354_5ba684f4d0d6b81673431e5b78534fe3_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201354_5ba684f4d0d6b81673431e5b78534fe3_3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'a3f9f3a2cbcb1f47bbe2cc4db7b35c82', 'title': '一跨境赌博案细节揭秘：盗版电影网牵出百亿赌资，共抓17人', 'date': '2021-04-07 20:13:00', 'category': '头条', 'author_name': '央视新闻', 'url': 'https://mini.eastday.com/mobile/210407201353547189519.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201353_60f53cfe49cf668fce1a2f5fbc0f6bd0_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201353_60f53cfe49cf668fce1a2f5fbc0f6bd0_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201353_60f53cfe49cf668fce1a2f5fbc0f6bd0_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '859a042f023c0f08b793d82d4d3e14e4', 'title': '15万元司法救助金！一场车祸后的暖心故事', 'date': '2021-04-07 20:11:00', 'category': '头条', 'author_name': '读特', 'url': 'https://mini.eastday.com/mobile/210407201136975116977.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407201136_afea543dac6083e4f19ff9eec86d29bc_1_mwpm_03201609.jpeg', 'is_content': '1'}], 'page': '1', 'pageSize': '30'}, 'error_code': 0}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_news_api_2</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in" align="left">
+    <pre>
+    
+pt1_2: {'id': 2, 'module': '【新闻头条】', 'title': '成功请求新闻头条，返回数据', 'url': '/toutiao/index', 'header': None, 'params': '{"key":"37e47a2441ceb88ab3086574dc68f1e3","type":"yule"}', 'data': None, 'expect_result': '{"error_code": 0}', None: None}
+{'key': '37e47a2441ceb88ab3086574dc68f1e3', 'type': 'yule'}
+{'reason': 'success!', 'result': {'stat': '1', 'data': [{'uniquekey': 'aebf27edf57fd2645552b717d8cebda5', 'title': '鹿晗出席活动被抓拍，黄毛卷发不像30岁', 'date': '2021-04-07 23:19:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407231940896700996.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/599x804_606dcd8c8776e_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '60f551e867a973c2ab01d2bc10298f80', 'title': '当迪丽热巴的背遇上杨幂的背，你更愿意在哪个背上拔火罐？', 'date': '2021-04-07 23:19:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231939973179871.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/440x616_606dcd8b977bc_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '3fe605458e44e9b418c90e85a57985d6', 'title': '这部电影利用沈腾卖力宣传，票房口碑却都不理想', 'date': '2021-04-07 23:19:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407231920698410918.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/928x574_606dcd785568b_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '444cf9ce2ca112d725c6b1b8c6b23f87', 'title': '陈冠希退出娱乐圈，为何从不缺钱花', 'date': '2021-04-07 23:19:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231910976506714.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/795x726_606dcd6e9f919_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '93b5abcbaadc300a1413694e293d57ba', 'title': '央视主持人龙洋极限换装，三七分身材太出众', 'date': '2021-04-07 23:18:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407231827491248072.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/1079x1063_606dcd42bdd61_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ae469ba1bd5831f58f44ff1a3a54d55e', 'title': '出道多年不雅，赵雅芝就是逃不过白娘子的形象？', 'date': '2021-04-07 23:18:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231807104628988.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/665x417_606dcd2ecca1e_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ca78fb7a54d088c46e9f953d58dac73c', 'title': '阎鹤祥建议庞博改名“庞一博”必能爆红', 'date': '2021-04-07 23:18:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407231804701847397.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/640x414_606dcd2c61401_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '475deb574af5e2f0335f208693f9c4df', 'title': '“女王乔安”归来，透视90后成长之路', 'date': '2021-04-07 23:17:00', 'category': '娱乐', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231749595588622.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231749_a24b052d459537750bd7e618238192d2_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231749_a24b052d459537750bd7e618238192d2_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'e20fc6f6d41d3bd62ed50cdb96b8ab53', 'title': '听姐说说|王鸥：演员不参加综艺增加曝光量，会面临没戏可拍', 'date': '2021-04-07 23:17:00', 'category': '娱乐', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231729533414233.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231729_c80f165879bfd9ae2a83c90a4e264c72_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231729_c80f165879bfd9ae2a83c90a4e264c72_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231729_c80f165879bfd9ae2a83c90a4e264c72_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c1c83a23a49f517d79015bae1e8ba5d3', 'title': '《怦然再心动》即将大结局，黄奕这次能牵手成功吗？', 'date': '2021-04-07 23:16:00', 'category': '娱乐', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210407231628188646780.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231628_c6ff91bd8509020dd85d946d77859eec_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407231628_c6ff91bd8509020dd85d946d77859eec_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '86c9ef7551a4400536a92824f4fda8da', 'title': '《司藤》张天爱换了一种眉形，从“老公”变成了温婉的女友', 'date': '2021-04-07 23:15:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231522039561478.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/648x530_606dcc89845b3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '530d62ea8b02629a7f682781aa183937', 'title': '辛巴复出直播再次点名：为辛巴“封路”是谁给的权利', 'date': '2021-04-07 23:14:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231452991475779.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/640x482_606dcc6cadc96_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '3f4e68e54c21ac07e7996f4c6a39bf01', 'title': '颖儿出席活动，身材纤细，气质优雅', 'date': '2021-04-07 23:14:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231413976816142.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/950x1425_606dcc458408f_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ec0b3cf498a0cf5100260ce831962af2', 'title': '《司藤》大结局没更新景甜张彬彬仰卧起坐惹现场嘉宾高呼：发糖了', 'date': '2021-04-07 23:13:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231317221231184.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/615x850_606dcc0ce2188_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'e075b24bfd4ffa87e8a430c6f28295ce', 'title': '岳云鹏晒与热搜师父合影，张鹤伦没回东北老家，德云社兄弟情深', 'date': '2021-04-07 23:12:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231217430894148.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/884x425_606dcbd10ecf4_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'eed5e62c28bc2a0925e8bd2572816b66', 'title': '冯提莫踩恨天高登上百变大咖秀能量变身，造型是什么', 'date': '2021-04-07 23:12:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407231213505806488.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/1139x637_606dcbccb76ad_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '9b03e9243ab6146e56078b44c28c3c8f', 'title': '林峰力证张馨月是人生真爱，隔空暗贬吴千语', 'date': '2021-04-07 23:11:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231153557115390.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/983x610_606dcbb8e00c1_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'c941d01676d2d1029501447b09c62166', 'title': '《狼殿下》演员年龄，肖战王大陆29岁', 'date': '2021-04-07 23:11:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407231145082879395.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/975x619_606dcbaf69adb_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '0225c2c02e822d27e26a97392715bf34', 'title': '央视主持人龙洋晒极速换装视频，气质追赶董卿', 'date': '2021-04-07 23:11:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231114400100893.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/1079x1063_606dcb91af157_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'a1b30ecb6d430ab6ffaec1ab8f8c08ab', 'title': '《有翡》余热未散，古装剧又出新爆款，上线四天登顶播放量日冠军', 'date': '2021-04-07 23:10:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407231052066758152.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/742x532_606dcb7babc5f_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '8e8bd2419dcdfa2770861a6e59a0e978', 'title': '《海洋之城》导演陈昆晖：用邮轮展现当下生活', 'date': '2021-04-07 23:09:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407230958367636292.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/1125x747_606dcb45b0162_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'dfbbc7dc1374515478626e787755751b', 'title': '《跑男9》路透生图曝光，蔡徐坤的九头身比例太完美', 'date': '2021-04-07 23:09:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407230948958301593.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/974x603_606dcb3c9f4e4_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '4cf191b3f021a827bf4b08f9ed7956a9', 'title': '张恒再被扒出丑事，对郑爽说“打死你”百次', 'date': '2021-04-07 23:09:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407230932341699689.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/700x383_606dcb2c10925_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'b7029c975e40689ccb647cb286206797', 'title': '中央电视台主持人刘仪伟：一个会做饭的居家男人', 'date': '2021-04-07 23:09:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407230917871405697.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/1080x720_606dcb1d8615a_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'd21752b0069021b15253cb03d25cbdf0', 'title': '顶风作案！辱华风波还在继续，袁姗姗穿耐克鞋拍照惹众怒', 'date': '2021-04-07 23:08:00', 'category': '娱乐', 'author_name': '名人荟', 'url': 'https://mini.eastday.com/mobile/210407230849175423941.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230849_6e1123b144231f6fec43da148254f731_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230849_6e1123b144231f6fec43da148254f731_1_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230849_6e1123b144231f6fec43da148254f731_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c0a1ddf8fdef6114ab1fac1272b46298', 'title': '王宁离开沈腾后变成“烂片专业户”，网友：人到中年', 'date': '2021-04-07 23:08:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407230844887692699.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/706x404_606dcafc8cae0_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'f97187ceab93c9ff9ac2c2963f1f2069', 'title': '孙怡：“京圈太子夫人”上位史，太狠了', 'date': '2021-04-07 23:08:00', 'category': '娱乐', 'author_name': '不追星的八卦少女', 'url': 'https://mini.eastday.com/mobile/210407230838993117871.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230838_e8dfe3bdd000724f43d3c0abd21a554e_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230838_e8dfe3bdd000724f43d3c0abd21a554e_1_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230838_e8dfe3bdd000724f43d3c0abd21a554e_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '926b9ab33431bc6ed0f015512926c327', 'title': '“巨肺小天后”邓紫棋的浪漫情史，和她情歌背后的男朋友', 'date': '2021-04-07 23:08:00', 'category': '娱乐', 'author_name': '百味娱人', 'url': 'https://mini.eastday.com/mobile/210407230828792297932.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230828_fdc27d97efc5087fe53ae81779e89a4e_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230828_fdc27d97efc5087fe53ae81779e89a4e_1_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210407/20210407230828_fdc27d97efc5087fe53ae81779e89a4e_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '0876087676d9322f70f3bfcb5aec2c68', 'title': '成龙67岁生日发文感谢祝福 生日当天仍在工作', 'date': '2021-04-07 23:07:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210407230741682257991.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/620x430_606dcabd36ffe_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '9e0ad67a90307845e9f129fbe00e843a', 'title': '《一年生2》：同性恋的真实写照', 'date': '2021-04-07 23:07:00', 'category': '娱乐', 'author_name': '泡泡', 'url': 'https://mini.eastday.com/mobile/210407230732641829416.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210407/600x400_606dcab4531fb_mwpm_03201609.jpeg', 'is_content': '1'}], 'page': '1', 'pageSize': '30'}, 'error_code': 0}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_select_ip.TestSelectIP: 查询IP地址接口测试</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',1)" class="detail" id='c2'>详细（初始收起1）</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_select_ip_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse in" align="left">
+    <pre>
+    
+pt2_1: http://apis.juhe.cn/ip/ipNew
+{'ip': '106.121.140.179', 'key': '65eb2b57a078dad94347ad3a1a05b5d9'}
+{'resultcode': '200', 'reason': '查询成功', 'result': {'Country': '中国', 'Province': '北京', 'City': '北京市', 'Isp': '电信'}, 'error_code': 0}
+2021-04-07 23:40:16,698--test_select_ip.py--line:32--INFO:断言成功
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

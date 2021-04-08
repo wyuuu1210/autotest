@@ -19,24 +19,27 @@ class Request(object):
         r = self.request.request(method=method, url=url, headers=headers, data=data, params=params, **kwargs)
 
         res = r.json()
+        ret = r.headers
+        # ret2 = r.cookies
 
         try:
-            return res
+            return ret
         except Exception as error:
             return "返回的数据不是json{}".format(error)
 
 
 if __name__ == '__main__':
-    import sys
-    print(sys.argv[0])
-    print(sys.argv[1].split("="))
-    print(sys.argv[2].split("="))
-    # ret = Request()
-    # ret.set_session()
-    # res = ret.requests_handler(
-    #     url="http://v.juhe.cn/toutiao/index",
-    #     method="post",
-    #     params={"key": "37e47a2441ceb88ab3086574dc68f1e3", "type": "top"})
-    # print(res)
+    # import sys
+    # print(sys.argv[0])
+    # print(sys.argv[1].split("="))
+    # print(sys.argv[2].split("="))
+    ret = Request()
+    ret.set_session()
+    res = ret.requests_handler(
+        url="http://v.juhe.cn/toutiao/index",
+        method="post",
+        params={"key": "37e47a2441ceb88ab3086574dc68f1e3", "type": "top"})
+    print(res)
+
 
     # "type":"top","key":"37e47a2441ceb88ab3086574dc68f1e3"
