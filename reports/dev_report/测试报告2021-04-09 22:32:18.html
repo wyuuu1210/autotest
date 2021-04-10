@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 120%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.test_log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起(detail)"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细()"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">自动化测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> wangyu</p>
+<p class='attribute'><strong>开始时间 : </strong> 2021-04-09 22:32:18</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:01.492047</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 3，通过 3，通过率= 100.00%</p>
+
+<p class='description'>api测试</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 3 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 3 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+# 此处为表格 行头 wangyu
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 16px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_news_api.TestNewsApi: 新闻查询接口测试</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细（初始收起1）</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_news_api_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in" align="left">
+    <pre>
+    
+pt1_1: {'reason': 'success!', 'result': {'stat': '1', 'data': [{'uniquekey': '0daf8a85e57e28a57b23003f8db821f8', 'title': '中青评论大学为争地铁站名掐架：学校知名度根本在于办学质量', 'date': '2021-04-09 22:16:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210409221644119855403.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409221644_0b21c0fa4c347043f7eb0b7a15c7e8a3_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409221644_0b21c0fa4c347043f7eb0b7a15c7e8a3_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c5055280b0645d59abf57c95b3f48ea6', 'title': '这些经历，不能忘却', 'date': '2021-04-09 22:06:00', 'category': '头条', 'author_name': '杭州网', 'url': 'https://mini.eastday.com/mobile/210409220608847963564.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220608_3b971e9bb2b9519093330543750a682c_1_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '6b163268f0e547ffcffd7d864dc01fc2', 'title': '【学党史 开新局】黔西南公安180多个“党员先锋岗”赢得为民服务“好口碑”', 'date': '2021-04-09 22:05:00', 'category': '头条', 'author_name': '多彩贵州网', 'url': 'https://mini.eastday.com/mobile/210409220529659510748.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220529_b2477f579ab643ef1497f3aa6cfb5885_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220529_b2477f579ab643ef1497f3aa6cfb5885_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220529_b2477f579ab643ef1497f3aa6cfb5885_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '11fcfcf6fcc307b6c869d1453debe074', 'title': '云阳“定制”相声作品4月10日起将在重庆多个剧场开演', 'date': '2021-04-09 22:00:00', 'category': '头条', 'author_name': '华龙网-新重庆客户端', 'url': 'https://mini.eastday.com/mobile/210409220031080887973.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220031_b0e4c19cf4a7917a45eaf993a41a4b54_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220031_b0e4c19cf4a7917a45eaf993a41a4b54_2_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'f926e5fef6487cebd761df37d1c4809f', 'title': '花1500元买闲置苹果手机 结果却收到几棵青菜？', 'date': '2021-04-09 21:55:00', 'category': '头条', 'author_name': '看看新闻Knews', 'url': 'https://mini.eastday.com/mobile/210409215552158763447.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215552_79099a74a50f8705ae0e1af7561fe557_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215552_79099a74a50f8705ae0e1af7561fe557_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215552_79099a74a50f8705ae0e1af7561fe557_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '72fb330e9f2e1373901b6238d9cfd5eb', 'title': '走心又上头！这样的反诈横幅，让人看了还想看......', 'date': '2021-04-09 21:54:00', 'category': '头条', 'author_name': '环球网', 'url': 'https://mini.eastday.com/mobile/210409215445467456850.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215445_636d27d1b121beaa2b2f58a4c3c9bf1a_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215445_636d27d1b121beaa2b2f58a4c3c9bf1a_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '5218f1ca74eab66c457c12de81694d39', 'title': '云南瑞丽：集中隔离人员（不含“三非”人员）免住宿费', 'date': '2021-04-09 21:49:00', 'category': '头条', 'author_name': '环球网', 'url': 'https://mini.eastday.com/mobile/210409214949406186419.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409214949_f9f46979929ceaaa845fca6226fbfbf3_1_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'c8d862f90309eceb79cf3e62b1286d87', 'title': '上海的城市品格，谁能来代表？', 'date': '2021-04-09 21:44:00', 'category': '头条', 'author_name': '东方网', 'url': 'https://mini.eastday.com/mobile/210409214436476772223.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409214436_2e04230261515d1dded52070a88792a4_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409214436_2e04230261515d1dded52070a88792a4_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409214436_2e04230261515d1dded52070a88792a4_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'd7b7f2cb31333ff38e20eb387d7e264d', 'title': '辽宁沈阳发生一起持刀伤人劫持事件 嫌疑人已自杀身亡 另有一人受伤', 'date': '2021-04-09 21:35:00', 'category': '头条', 'author_name': '央视新闻客户端', 'url': 'https://mini.eastday.com/mobile/210409213510559141897.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409213510_ee18617f9ed5c01e80f55fc3e2d445a6_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '079d3d378614360e43a696ca4ab49b30', 'title': '因未经登记或未报送年度工作报告 河南这两家社会组织被处罚', 'date': '2021-04-09 21:29:00', 'category': '头条', 'author_name': '大河网', 'url': 'https://mini.eastday.com/mobile/210409212958571466534.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409212958_62f14f6eaaeb5a2b47f30ad2a13d79d2_1_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '296a487dc2feb823df7f54ae6fe5d9db', 'title': '专家：逐步开放中华鲟、长江鲟合理利用，缓解人工保种压力', 'date': '2021-04-09 21:29:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210409212954354342674.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409212954_9f34fd0af278d45b972636f7aa6a1bc7_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '79d4ac2fb417f67d04e61f7dc7b78ad6', 'title': '外创园“洋博士”在拱墅接种新冠疫苗：“出差再回中国，不用隔离，太棒了！”', 'date': '2021-04-09 21:18:00', 'category': '头条', 'author_name': '杭州网', 'url': 'https://mini.eastday.com/mobile/210409211854489204761.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211854_b5024700bb4eea582d4be1c48f37a89a_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'cca17a12aabc5b4a60ec43d473375b05', 'title': '四川27岁男教师离奇陈尸私家车，生前曾称挪用公款欠下网贷', 'date': '2021-04-09 21:18:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210409211822003829121.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211822_46f5b540fa585e31d444fc02a7c57407_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211822_46f5b540fa585e31d444fc02a7c57407_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211822_46f5b540fa585e31d444fc02a7c57407_3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '130b367871670e62932a89ef0d07877c', 'title': '平凡的生活里，也有属于你的高光', 'date': '2021-04-09 21:16:00', 'category': '头条', 'author_name': '中国青年杂志', 'url': 'https://mini.eastday.com/mobile/210409211625353744792.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211625_28eada8f02d8250f767308db1e2cf4cf_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211625_28eada8f02d8250f767308db1e2cf4cf_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409211625_28eada8f02d8250f767308db1e2cf4cf_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '58320dc20c5b91dc2a555cc6ffa4673e', 'title': '警方通报！佛山女毕业生实名举报老师性骚扰，当事人已到派出所报警', 'date': '2021-04-09 21:08:00', 'category': '头条', 'author_name': '读特', 'url': 'https://mini.eastday.com/mobile/210409210811005159853.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210811_4db7b7ac0fab899386723d65fd9693ff_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '7227d71e99a50958bcf276e50e329888', 'title': '中国学者率先破解植物繁育机理 助力克服杂交障碍', 'date': '2021-04-09 21:03:00', 'category': '头条', 'author_name': '中国新闻网', 'url': 'https://mini.eastday.com/mobile/210409210350327367846.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210350_db33a916ec7221c4dc456db7750382db_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '65ecc30e9e7703c8d2f8eaad7bf75b9f', 'title': '万宁一男子酒后无证驾驶套牌车 数罪并罚被行政拘留15日', 'date': '2021-04-09 21:03:00', 'category': '头条', 'author_name': '南海网', 'url': 'https://mini.eastday.com/mobile/210409210306433173200.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210306_0ba36466da9125a8de07044dc9ea3899_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210306_0ba36466da9125a8de07044dc9ea3899_2_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'c5ffaca7810e487e118102ae5079c69d', 'title': '共12部作品获奖！首届“晓剑海南青年文学奖”颁奖仪式在海南举行', 'date': '2021-04-09 21:02:00', 'category': '头条', 'author_name': '海口网', 'url': 'https://mini.eastday.com/mobile/210409210216529321097.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210216_d41d8cd98f00b204e9800998ecf8427e_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210216_d41d8cd98f00b204e9800998ecf8427e_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409210216_d41d8cd98f00b204e9800998ecf8427e_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '729f0b5dcc826e0488b44ebe667b2ca2', 'title': '会做口红的手臂机器人、来自太空实验室的护肤品……记者探营上交会之“美”', 'date': '2021-04-09 20:59:00', 'category': '头条', 'author_name': '东方网', 'url': 'https://mini.eastday.com/mobile/210409205904330594200.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205904_8b41efa8cc31916e516895a8ae7a5237_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205904_8b41efa8cc31916e516895a8ae7a5237_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205904_8b41efa8cc31916e516895a8ae7a5237_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'b92326b94fdba0a98d944398c6675fdc', 'title': '文学报40年 | 王磊光：批评精神，就像比远方更远的那阵风', 'date': '2021-04-09 20:57:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210409205737681787530.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205737_8250eff3ba16faed7f25e292faf7efa3_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205737_8250eff3ba16faed7f25e292faf7efa3_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205737_8250eff3ba16faed7f25e292faf7efa3_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '022e1691d41729d90bf191f91cfdb390', 'title': '13岁女孩偷家里70万约画，未成年人消费行为该如何规范', 'date': '2021-04-09 20:54:00', 'category': '头条', 'author_name': '澎湃新闻', 'url': 'https://mini.eastday.com/mobile/210409205411901193590.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205411_720a11f2329f5dee2b6c2230f2f373c1_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205411_720a11f2329f5dee2b6c2230f2f373c1_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409205411_720a11f2329f5dee2b6c2230f2f373c1_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ec625c62983536ccda1c39f5da3b1601', 'title': '没人民币想"换钱"？民警：小心，这是"阿诈里"', 'date': '2021-04-09 20:43:00', 'category': '头条', 'author_name': '看看新闻网', 'url': 'https://mini.eastday.com/mobile/210409204353385903705.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409204353_e5e6851979660f68d31baa51ddbc1695_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409204353_e5e6851979660f68d31baa51ddbc1695_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409204353_e5e6851979660f68d31baa51ddbc1695_3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'a3afae154a7021c6de4a73c4a14a1b59', 'title': '万宁两家商店出售假“太太乐”鸡精 涉案商品已被查扣', 'date': '2021-04-09 20:38:00', 'category': '头条', 'author_name': '南海网', 'url': 'https://mini.eastday.com/mobile/210409203850895996496.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203850_52ae21e89d122f73add195d55313033a_1_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '20f05652e7e01bb07780783ed031ad21', 'title': '包头一女子因男友外貌被取笑 持刀将取笑者捅死被刑拘', 'date': '2021-04-09 20:32:00', 'category': '头条', 'author_name': '北青Qnews', 'url': 'https://mini.eastday.com/mobile/210409203256307920087.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203256_2755fca1bbec177fdcd9ac4757aec2c1_1_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '140e2b29d41a37ee075ed6e381d71c92', 'title': '六旬老人突发疾病倒在路边，特警队员及时救助转危为安', 'date': '2021-04-09 20:32:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210409203254880394989.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203254_7bfd03bafb9eb32677692de63ff986c2_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203254_7bfd03bafb9eb32677692de63ff986c2_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203254_7bfd03bafb9eb32677692de63ff986c2_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '8e2d5183333eb06fc7732ed6bf941a37', 'title': '外卖小哥急着送餐，撞上了急着上班的保洁员', 'date': '2021-04-09 20:31:00', 'category': '头条', 'author_name': '', 'url': 'https://mini.eastday.com/mobile/210409203137678866246.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203137_ab59b9812ba67c09c5a9c9a1e810069d_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409203137_ab59b9812ba67c09c5a9c9a1e810069d_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '77bbf60d34e656237db1709e80cce75d', 'title': '为振兴评弹事业，陈云40年前提出了七字名言', 'date': '2021-04-09 20:24:00', 'category': '头条', 'author_name': '文汇报', 'url': 'https://mini.eastday.com/mobile/210409202417828316082.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202417_279b940d278f39353f3a7e16634765dc_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202417_279b940d278f39353f3a7e16634765dc_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202417_279b940d278f39353f3a7e16634765dc_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ab50af9b49b6a530226a272377745329', 'title': '罗勤先生的翰墨情怀', 'date': '2021-04-09 20:21:00', 'category': '头条', 'author_name': '环球文化网', 'url': 'https://mini.eastday.com/mobile/210409202110623296950.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202110_c7c928757e50b1089de0f5938bd3d831_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202110_c7c928757e50b1089de0f5938bd3d831_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202110_c7c928757e50b1089de0f5938bd3d831_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '770cd8deb04ede9ad8d16b89d07f5fa9', 'title': '一周文化圈 | “三星堆”商标被抢注，博物馆表示“防不胜防”', 'date': '2021-04-09 20:20:00', 'category': '头条', 'author_name': '搜狐文化', 'url': 'https://mini.eastday.com/mobile/210409202043450237774.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202043_f1b56ad70a42dcea6ee5c26f7b00b0de_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202043_f1b56ad70a42dcea6ee5c26f7b00b0de_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409202043_f1b56ad70a42dcea6ee5c26f7b00b0de_3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': '48d167204eb96a2586f0793d2901fd9d', 'title': '周一鸣没骨画暨青田石雕精品展在湖南省文化馆开幕', 'date': '2021-04-09 20:18:00', 'category': '头条', 'author_name': '文旅中国', 'url': 'https://mini.eastday.com/mobile/210409201810897112557.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409201810_3223bf5edbf7fd28e3d600201f8853e4_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409201810_3223bf5edbf7fd28e3d600201f8853e4_2_mwpm_03201609.jpeg', 'is_content': '1'}], 'page': '1', 'pageSize': '30'}, 'error_code': 0}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_news_api_2</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in" align="left">
+    <pre>
+    
+pt1_2: {'reason': 'success!', 'result': {'stat': '1', 'data': [{'uniquekey': 'b4f08c47617ee105e23905f400da19f8', 'title': '京剧名家童祥苓近照曝光，再唱《智取威虎山》，86岁风采依旧', 'date': '2021-04-09 22:08:00', 'category': '娱乐', 'author_name': '一娱', 'url': 'https://mini.eastday.com/mobile/210409220859094207537.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220859_92a020c48861d98f3319d75ab689a07a_1_mwpm_03201609.png', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220859_92a020c48861d98f3319d75ab689a07a_2_mwpm_03201609.png', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409220859_92a020c48861d98f3319d75ab689a07a_3_mwpm_03201609.png', 'is_content': '1'}, {'uniquekey': 'a02f28d78b8c3c1592e26694a74c6e4b', 'title': '王一博的励志经历，你知道多少？', 'date': '2021-04-09 21:57:00', 'category': '娱乐', 'author_name': '胡图图', 'url': 'https://mini.eastday.com/mobile/210409215750913591289.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/1024x646_60705d5e64e92_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'eabce6764a223e9962828e7fa53c9760', 'title': '看完周星驰片场照片，就知道为何那么多明星不愿跟他合作', 'date': '2021-04-09 21:56:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409215641587165509.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/636x328_60705d1941afe_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'cad7bbcb788f9b1775f74a444c21a219', 'title': '出轨林心如闺蜜的男友，如今50多岁仍是单身', 'date': '2021-04-09 21:56:00', 'category': '娱乐', 'author_name': '胡图图', 'url': 'https://mini.eastday.com/mobile/210409215637479591708.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/500x308_60705d152fd65_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '622d5593a4e3d4bffa794839e6f8b378', 'title': '她名字充满寓意，当红时却选择嫁给丑男！', 'date': '2021-04-09 21:56:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409215608328886556.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/297x405_60705cf80754d_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c5fcf53b0a4c2d4874bfa82be9228048', 'title': '乘风破浪的姐姐总决赛：那英吉克隽逸获奖，周笔畅杨丞琳后来居上', 'date': '2021-04-09 21:55:00', 'category': '娱乐', 'author_name': '娱乐新潮向', 'url': 'https://mini.eastday.com/mobile/210409215520583178195.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215520_c0108c282ecdf03b3df6949653c8d4ab_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215520_c0108c282ecdf03b3df6949653c8d4ab_1_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215520_c0108c282ecdf03b3df6949653c8d4ab_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '977f23f93a2b05c84054629010fef68e', 'title': '直播间人气太旺被挤出，龚俊解释不耍大牌', 'date': '2021-04-09 21:55:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409215530960294994.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/1200x737_60705cd283d65_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ad38e1dcb9c1d54080e8dc1b861f5210', 'title': '李亚鹏和许晴传出了恋情？怎么回事', 'date': '2021-04-09 21:55:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409215519966450620.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/500x304_60705cc7859a5_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'b36e3c2f604c7ccced833fc15fce941a', 'title': '甜剧《良辰美景好时光》原著作者翘摇小说合集15部，这里有更甜的', 'date': '2021-04-09 21:54:00', 'category': '娱乐', 'author_name': '纸壳唐姜', 'url': 'https://mini.eastday.com/mobile/210409215428764222449.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215428_8b3c3570ceae21bca24d4fc8357dc38c_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215428_8b3c3570ceae21bca24d4fc8357dc38c_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215428_8b3c3570ceae21bca24d4fc8357dc38c_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '8139f60db5cde125b33659efd69baee0', 'title': '《王牌对王牌》关晓彤与黄晓明肢体接触，网友：这样是不是小心了', 'date': '2021-04-09 21:54:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409215412943120457.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/550x435_60705c849bba3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '5c2fb9f9105409c354eca22e3e97c0ba', 'title': '41岁胡杏儿产子细节曝光，三胎颜值酷似俩哥哥，老公在产房陪同', 'date': '2021-04-09 21:53:00', 'category': '娱乐', 'author_name': '我们都是吃瓜er', 'url': 'https://mini.eastday.com/mobile/210409215351678853066.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215351_e13d3a2b9b1e24e3dad8427a6b488eb8_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215351_e13d3a2b9b1e24e3dad8427a6b488eb8_2_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215351_e13d3a2b9b1e24e3dad8427a6b488eb8_3_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'e2e97641306b50fd5e239e86aaebe4ca', 'title': '他曾是影帝、影后，如今却成跑龙套', 'date': '2021-04-09 21:52:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409215208117730629.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/633x393_60705c079f21f_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'b44f9f1572720430dc130b528c2ddd28', 'title': '董明珠放信号，脱口而出“岳云社”，岳云鹏回答好机智', 'date': '2021-04-09 21:51:00', 'category': '娱乐', 'author_name': '大伟说说说', 'url': 'https://mini.eastday.com/mobile/210409215120799743029.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215120_3a50ee5609cba347878e29bf9dc06e4e_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215120_3a50ee5609cba347878e29bf9dc06e4e_1_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215120_3a50ee5609cba347878e29bf9dc06e4e_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c0c8cf02b6d456bff27b7f537c9e549a', 'title': '出道28年没传出绯闻，妻子是青梅竹马', 'date': '2021-04-09 21:51:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409215117291380357.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/596x447_60705bd4dd735_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '5ad30134768ebc85d645d7fd04d51484', 'title': '歌唱家阎维文：不离不弃照顾妻子20年，女婿背景不一般', 'date': '2021-04-09 21:50:00', 'category': '娱乐', 'author_name': '冷眼儿时尚圈', 'url': 'https://mini.eastday.com/mobile/210409215050075417567.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215050_3474d9848f1f3d7a974fd39227147277_0_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215050_3474d9848f1f3d7a974fd39227147277_1_mwpm_03201609.jpeg', 'thumbnail_pic_s03': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409215050_3474d9848f1f3d7a974fd39227147277_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c76897016d6bf6544acff02497bcfc1c', 'title': '罗嘉良原配是方敏仪，18年后还能选定成婚，净身出户4000万', 'date': '2021-04-09 21:50:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409215019909110274.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/560x334_60705b9b8fa5d_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '885ac2db1ba79da1fdad8f69f28d5b34', 'title': '又酷又可爱！苏炳添罕见晒儿子正面照', 'date': '2021-04-09 21:50:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409215010274431721.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/640x592_60705b91b6d8f_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ce4370d33634b4e3e4d51a84194369af', 'title': '她曾和周孝安谈过恋爱，如今42岁成单身未婚一员', 'date': '2021-04-09 21:49:00', 'category': '娱乐', 'author_name': '胡图图', 'url': 'https://mini.eastday.com/mobile/210409214934454589009.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/678x431_60705b6e1286d_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '0d11fe1b5d6b6ae015e4151f3cd3544a', 'title': '52岁杨澜近照曝光，老公吴征身家破亿，女儿颜值堪忧', 'date': '2021-04-09 21:49:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409214920772919105.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/603x408_60705b6072e24_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '955f3e71aeb3d4d00cbd05455b6f4c2d', 'title': '52岁江珊，丈夫婚内出轨分手后娶小17岁娇妻，如今52岁如姐', 'date': '2021-04-09 21:48:00', 'category': '娱乐', 'author_name': '胡图图', 'url': 'https://mini.eastday.com/mobile/210409214834714611551.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/484x304_60705b325d6d2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'ad8d2b53002f424311528efd14b1933b', 'title': '本是经纪公司的普通员工，因颜值太高被老板相中，今终成大明星', 'date': '2021-04-09 21:48:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409214818922974720.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/584x363_60705b229d41e_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'c91bdc7e8604c307363f6f43b75cb176', 'title': '《荣耀再相约》记录冰雪梦想 迎接北京冬奥会倒计时300天', 'date': '2021-04-09 21:47:00', 'category': '娱乐', 'author_name': '中国日报网', 'url': 'https://mini.eastday.com/mobile/210409214721807918772.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409214721_eed6662308398cf69b8e0bccecac3d54_1_mwpm_03201609.jpeg', 'thumbnail_pic_s02': 'https://dfzximg02.dftoutiao.com/news/20210409/20210409214721_eed6662308398cf69b8e0bccecac3d54_2_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'f2456d8afdb6dc8bc41e5e6cc37ecd08', 'title': '她走红不久却意外怀孕，孩子父亲至今仍是迷', 'date': '2021-04-09 21:47:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409214740345288734.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/543x411_60705afbe39d9_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '470b4cbadf5e30b254d8df4e8b2361a0', 'title': '刘亦菲五官也变得更加精致美丽，更迷人', 'date': '2021-04-09 21:45:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409214552726149225.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/628x330_60705a905d24f_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '33671490a6f4a70e76200c8898e97612', 'title': '《偶练》成为了我青春的代名词', 'date': '2021-04-09 21:45:00', 'category': '娱乐', 'author_name': '阳光之星', 'url': 'https://mini.eastday.com/mobile/210409214548122753080.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/1058x944_60705a8bb3864_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'bfb8ed459ed6ff1039371563cb24f0ad', 'title': '经历最奇葩的古代名相，政绩卓著却成神探', 'date': '2021-04-09 21:45:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409214518795364347.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/870x574_60705a6e64687_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': 'a9dea8e2f4134a9b73b6dc9e8ba76bd4', 'title': '陈建斌曾有过一段长达5年的感情，受伤的吴越至今未婚！', 'date': '2021-04-09 21:44:00', 'category': '娱乐', 'author_name': '阳光之星', 'url': 'https://mini.eastday.com/mobile/210409214431011316120.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/766x455_60705a3e9e8b0_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '2f610200df6ef47974e102dffe66dad8', 'title': '从身家56亿到“挤公交买菜”，周润发经历了什么', 'date': '2021-04-09 21:44:00', 'category': '娱乐', 'author_name': '最重的瘦子', 'url': 'https://mini.eastday.com/mobile/210409214412482302630.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/640x733_60705a2c04724_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '97e83f2ee1a0cac816e59b49f2db8d94', 'title': '刘诗诗龙葵定妆照引回忆杀，网友：幸好没有初版的造型', 'date': '2021-04-09 21:44:00', 'category': '娱乐', 'author_name': '王者天下', 'url': 'https://mini.eastday.com/mobile/210409214400186276885.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/1176x693_60705a1fa47d8_mwpm_03201609.jpeg', 'is_content': '1'}, {'uniquekey': '925403068254a8248cdf2098d7b79d6e', 'title': '谢可寅身穿彩色吊带长裙出席活动黑发造型美飒冷艳', 'date': '2021-04-09 21:43:00', 'category': '娱乐', 'author_name': '阳光之星', 'url': 'https://mini.eastday.com/mobile/210409214323271106089.html', 'thumbnail_pic_s': 'https://dfzximg02.dftoutiao.com/minimodify/20210409/620x413_607059faea7d4_mwpm_03201609.jpeg', 'is_content': '1'}], 'page': '1', 'pageSize': '30'}, 'error_code': 0}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_select_ip.TestSelectIP: 查询IP地址接口测试</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',1)" class="detail" id='c2'>详细（初始收起1）</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_select_ip_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse in" align="left">
+    <pre>
+    
+pt2_1: http://apis.juhe.cn/ip/ipNew
+{'ip': '106.121.140.179', 'key': '65eb2b57a078dad94347ad3a1a05b5d9'}
+{'resultcode': '200', 'reason': '查询成功', 'result': {'Country': '中国', 'Province': '北京', 'City': '北京市', 'Isp': '电信'}, 'error_code': 0}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

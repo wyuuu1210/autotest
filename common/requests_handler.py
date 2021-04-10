@@ -19,11 +19,11 @@ class Request(object):
         r = self.request.request(method=method, url=url, headers=headers, data=data, params=params, **kwargs)
 
         res = r.json()
-        ret = r.headers
+        # ret = r.headers
         # ret2 = r.cookies
 
         try:
-            return ret
+            return res
         except Exception as error:
             return "返回的数据不是json{}".format(error)
 
