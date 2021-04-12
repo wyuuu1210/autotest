@@ -1,8 +1,10 @@
 import pymysql
-# import sys
-# import os
-# sys.path.insert(0, os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))
-from config.settings import MYSQL
+import sys
+import os
+# import datetime
+
+sys.path.insert(0, os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))
+from config import settings
 
 
 class MysqlHandler(object):
@@ -15,7 +17,7 @@ class MysqlHandler(object):
             user=MQ["user"],
             password=MQ["password"],
             database=MQ["database"],
-            cursorclass="DictCusor"
+            cursorclass=pymysql.cursors.DictCursor
         )
         # 创建游标：相当于进入 mysql> 命令操作界面
         self.cursor = self.connect.cursor()
@@ -42,6 +44,13 @@ class MysqlHandler(object):
         self.connect.close()
 
 
-
 if __name__ == '__main__':
-    t = MysqlHandler(MYSQL)
+    t = MysqlHandler(settings.MYSQL)
+    sql = """SELECT * from t_ads_items where id=3"""
+    res = t.query_data(sql)
+    print(res)
+    print(res[0]["update_time"])
+    print(type(res[0]["update_time"]))
+    res_time = res[0]["update_time"]
+    print(res_time.strftime("%Y-%m-%d %H:%M:%S"))
+    print(type(res_time.strftime("%Y-%m-%d %H:%M:%S")))

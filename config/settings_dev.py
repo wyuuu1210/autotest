@@ -1,10 +1,12 @@
 # 数据库配置
 MYSQL = {
-    "host": "127.0.0.1",
+    "host": "59.110.124.17",
     "port": 3306,
-    "user": "root",
-    "password": "654321",
-    "database": "customerdb"
+    # "user": "wangyu",
+    # "password": "wcyy0124",
+    "user": "wenchao",
+    "password": "wcyy0124",
+    "database": "yyretent"
 }
 
 # 测试数据文件

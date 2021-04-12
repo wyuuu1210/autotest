@@ -39,36 +39,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a8389cc-326d-43e3-abf2-6e6e763e1526" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/data_dev.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reports/test_report/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_log/test_log_dev.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/mysql_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/mysql_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/read_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/read_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/requests_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/requests_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/test_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/test_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/conf.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config_path.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle_handler/middlehandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/middle_handler/middlehandler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/reports/dev_report/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-03-28 18:37:02.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-03-28 18:37:02.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-03-28 18:41:21.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-03-28 18:41:21.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-02 22:26:26.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-02 22:26:26.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:35:35.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:35:35.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:37:22.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:37:22.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:39:58.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:39:58.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:42:34.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:42:34.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:45:12.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:45:12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:50:07.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:50:07.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-06 23:54:00.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-06 23:54:00.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/测试报告2021-04-07 23:40:15.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/test_report/测试报告2021-04-07 23:40:15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_all_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_all_case.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_log/test_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_log/test_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/test_news_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/test_news_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/test_select_ip.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/test_select_ip.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,21 +67,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/reports/test_report" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.test_all_case">
+  <component name="RunManager" selected="Python.mysql_handler">
     <configuration name="mysql_handler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="autotest" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,10 +201,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.mysql_handler" />
         <item itemvalue="Python.test_all_case" />
         <item itemvalue="Python.settings" />
         <item itemvalue="Python.test_all_case" />
-        <item itemvalue="Python.mysql_handler" />
         <item itemvalue="Python.requests_handler" />
       </list>
     </recent_temporary>
@@ -255,7 +230,8 @@
       <workItem from="1617800510730" duration="7597000" />
       <workItem from="1617863969174" duration="6065000" />
       <workItem from="1617939969997" duration="14299000" />
-      <workItem from="1618026793088" duration="1930000" />
+      <workItem from="1618026793088" duration="2183000" />
+      <workItem from="1618219115897" duration="4820000" />
     </task>
     <servers />
   </component>
@@ -290,10 +266,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617979876627">
+    <state x="101" y="286" key="#SQL_Dialects" timestamp="1618233600631">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1617979876627" />
+    <state x="101" y="286" key="#SQL_Dialects/0.0.1440.900@0.0.1440.900" timestamp="1618233600631" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618233993690">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1618233993690" />
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617950763570">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -306,28 +286,32 @@
       <screen x="51" y="23" width="1389" height="877" />
     </state>
     <state x="533" y="222" key="FileChooserDialogImpl/51.23.1389.877@51.23.1389.877" timestamp="1617109134768" />
-    <state width="1398" height="304" key="GridCell.Tab.0.bottom" timestamp="1617983100861">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1351" height="230" key="GridCell.Tab.0.bottom" timestamp="1618238359454">
+      <screen x="47" y="23" width="1393" height="877" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1617983100861" />
+    <state width="1351" height="230" key="GridCell.Tab.0.bottom/47.23.1393.877@47.23.1393.877" timestamp="1618238359454" />
     <state width="1347" height="231" key="GridCell.Tab.0.bottom/49.23.1391.877@49.23.1391.877" timestamp="1617724858439" />
     <state width="1347" height="231" key="GridCell.Tab.0.bottom/51.23.1389.877@51.23.1389.877" timestamp="1617725765856" />
-    <state width="1398" height="304" key="GridCell.Tab.0.center" timestamp="1617983100860">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1351" height="230" key="GridCell.Tab.0.center" timestamp="1618238359453">
+      <screen x="47" y="23" width="1393" height="877" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1617983100860" />
+    <state width="1351" height="230" key="GridCell.Tab.0.center/47.23.1393.877@47.23.1393.877" timestamp="1618238359453" />
     <state width="1347" height="231" key="GridCell.Tab.0.center/49.23.1391.877@49.23.1391.877" timestamp="1617724858438" />
     <state width="1347" height="231" key="GridCell.Tab.0.center/51.23.1389.877@51.23.1389.877" timestamp="1617725765855" />
-    <state width="1398" height="304" key="GridCell.Tab.0.left" timestamp="1617983100859">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1351" height="230" key="GridCell.Tab.0.left" timestamp="1618238359453">
+      <screen x="47" y="23" width="1393" height="877" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1617983100859" />
+    <state width="1351" height="230" key="GridCell.Tab.0.left/47.23.1393.877@47.23.1393.877" timestamp="1618238359453" />
     <state width="1347" height="231" key="GridCell.Tab.0.left/49.23.1391.877@49.23.1391.877" timestamp="1617724858437" />
     <state width="1347" height="231" key="GridCell.Tab.0.left/51.23.1389.877@51.23.1389.877" timestamp="1617725765855" />
-    <state width="1398" height="304" key="GridCell.Tab.0.right" timestamp="1617983100861">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1351" height="230" key="GridCell.Tab.0.right" timestamp="1618238359454">
+      <screen x="47" y="23" width="1393" height="877" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1617983100861" />
+    <state width="1351" height="230" key="GridCell.Tab.0.right/47.23.1393.877@47.23.1393.877" timestamp="1618238359454" />
     <state width="1347" height="231" key="GridCell.Tab.0.right/49.23.1391.877@49.23.1391.877" timestamp="1617724858438" />
     <state width="1347" height="231" key="GridCell.Tab.0.right/51.23.1389.877@51.23.1389.877" timestamp="1617725765855" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1617983100864">
@@ -364,7 +348,7 @@
     <SUITE FILE_PATH="coverage/autotest$settings.coverage" NAME="settings Coverage Results" MODIFIED="1617948705006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/config" />
     <SUITE FILE_PATH="coverage/autotest$test_all_case.coverage" NAME="test_all_case Coverage Results" MODIFIED="1617940617405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autotest$middlehandler.coverage" NAME="test_all_case Coverage Results" MODIFIED="1617980740673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/autotest$mysql_handler.coverage" NAME="mysql_handler Coverage Results" MODIFIED="1617896180717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/autotest$mysql_handler.coverage" NAME="mysql_handler Coverage Results" MODIFIED="1618238350153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/autotest$requests_handler.coverage" NAME="requests_handler Coverage Results" MODIFIED="1617893605936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/autotest$Unittests_in_test_news_api_py.coverage" NAME="Unittests in test_news_api.py Coverage Results" MODIFIED="1617260161916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
     <SUITE FILE_PATH="coverage/autotest$Unittests_in_test_select_ip_py.coverage" NAME="Unittests in test_select_ip.py Coverage Results" MODIFIED="1617260988912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
